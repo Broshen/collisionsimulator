@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Collision Sim</title>
+</head>
+
+<body>
+
+<h1>Collision Simulator</h1>
+
+
+<p >
+	<canvas id="myCanvas"
+	 		width="400" 
+	 		height="200"
+	 		style="border:1px solid #000000;">
+	 	</canvas>
+</p>
+
+<p >
+	<p id="object_1_input">
+	Object 1:
+	Position:
+	X:<input type="text" id="x_1" size="3" value=10>
+	Y:<input type="text" id="y_1" size="3" value=100>
+	Velocity:
+	X:<input type="text" id="vx_1"size="3" value="40">
+	Y:<input type="text" id="vy_1"size="3" value="0">
+	Radius:<input type="text" id="r_1"size="3" value=10>
+	Mass:<input type="text" id="m_1"size="3" value=1>
+	</p>
+
+	<p id="object_2_input">
+	Object 2:
+	Position:
+	X:<input type="text" id="x_2"size="3" value=300>
+	Y:<input type="text" id="y_2"size="3" value=110>
+	Velocity:
+	X:<input type="text" id="vx_2"size="3" value="-20">
+	Y:<input type="text" id="vy_2"size="3" value=2>
+	Radius:<input type="text" id="r_2"size="3" value=20>
+	Mass:<input type="text" id="m_2"size="3" value=2>
+	</p>
+    
+    <p id="other variables">
+	Other Variables:
+    Spring Constant: <input type="text" id="k" size="3" value=1400>
+    Time Interval for Calculation: <input type="text" id="interval"size="3" value=0.05>
+    Coefficient of Friction: <input type="text" id="mu" size="3" value=0.05>
+	</p>
+ 		
+
+	<button onclick="initialize()">Set Inputs</button>
+	<button onclick="start()" id="startbutton">Start</button>
+    <button onclick="stop()" id="stopbutton">Stop</button>
+	<button onclick="debug()" id="debugbtn" >See Values</button>
+	<button onclick="hidedebug()" id="hidedebugbtn" disabled="true">Hide Values</button>
+</p>
+
+<p id="debug"></p>
+
+
+<script src="collisionsim.js"> </script> 
+</body>
+
+</html>
