@@ -32,6 +32,11 @@ torque:0
 
 var springConstant=1400, interval=0.05, mu=0.05, F, cost, sint, alpha1, alpha2, d;
 
+function resize(){
+	c.width = window.innerWidth-20;
+	c.height = 400;
+	redraw();
+}
 
 //interval is in s
 function drawBackground(){
@@ -62,7 +67,7 @@ function drawBackground(){
  
  }
 
-function initialize(){
+function getInputs(){
   object_1.x=Number(document.getElementById("x_1").value);
   object_1.y=Number(document.getElementById("y_1").value);
   object_1.vx=Number(document.getElementById("vx_1").value);
@@ -83,7 +88,6 @@ function initialize(){
   
   
   springConstant=Number(document.getElementById("k").value);
-  interval=Number(document.getElementById("interval").value);
   mu=Number(document.getElementById("mu").value);
   
   
@@ -150,36 +154,12 @@ function stop(){
 	document.getElementById("stopbutton").disabled = true;
 }
 
+function initialize(){
 
-function debug(){
-	document.getElementById("debug").innerHTML=" Variables: x \t y \t vx \t vy \t ax \t ay \t mass \t radius \t inertia \t angularV \t torque";
-	document.getElementById("debug").innerHTML+= "<br> Object 1: ";
-	
-	for(var key in object_1) {
-    document.getElementById("debug").innerHTML+= object_1[key] + "\t";
 }
-	document.getElementById("debug").innerHTML+= "<br> Object 2: ";
-	
-	for(var key in object_2) {
-    document.getElementById("debug").innerHTML+= object_2[key]  + "\t";
-}
-	document.getElementById("debug").innerHTML+= "<br> d:" + d;
-	document.getElementById("debug").innerHTML+= "<br> F:" + F;
-	document.getElementById("debug").innerHTML+= "<br> cost:" + cost;
-	document.getElementById("debug").innerHTML+= "<br> sint:" + sint;
-	document.getElementById("debug").innerHTML+= "<br> alpha1:" + alpha1;
-	document.getElementById("debug").innerHTML+= "<br> alpha2:" + alpha2;
-	
-	document.getElementById("debugbtn").disabled = true;
-	document.getElementById("hidedebugbtn").disabled = false;
-}
-
-function hidedebug(){
-	document.getElementById("debug").innerHTML=" ";
-	
-	document.getElementById("debugbtn").disabled = false;
-	document.getElementById("hidedebugbtn").disabled = true;
-}
+resize();
+initialize();
+stop();
 
 								   
 
